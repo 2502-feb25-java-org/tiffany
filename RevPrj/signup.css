@@ -1,0 +1,28 @@
+body{
+    background-color: antiquewhite;
+}
+header{
+    background-color:wheat;
+    border-style: inset;
+    border-color: beige;
+}
+
+fieldset{
+    border-style: dashed;
+    border-color: black;
+    background-color: orange;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+.center {
+
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+  }
+.contact{
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+  }
