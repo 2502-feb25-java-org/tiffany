@@ -3,7 +3,7 @@
 
 <head>
     <title>Sign UP!</title>
-    <!--link rel="stylesheet" href="signup.css"/> -->
+    <link rel="stylesheet" href="signup.css"/> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,7 +29,7 @@
                 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
+                    SignIn/Up
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="signup1.html">Sign Up</a>
@@ -51,49 +51,55 @@
     <div   class="container" >
 
          <main>
-
-    <form action="url" method="GET" id="sign-up-form">
-    <fieldset class="center">
-
+          <form name="signup">
             <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                            <legend> Sign up requirements</legend>
-                            <label for="name"> First Name:</label><br>
-                            <input type="text" name="name" placeholder="First name" id="fname" required/><br>
-                            <label> Last Name:</label><br>
-                            <input type="text" name="name" placeholder="Last name" id="lname" required/>
-                      </div>
-                      <div class="col-sm">
-                            <legend>Gender and Age</legend>
-                                    <label for="gender" id="gender">Gender :
-                                        <label for="male" >Male<input type="radio" name="gender" id="male" /></label>
-                                        <label for="female">Female<input type="radio" name="gender" id="female" /> </label>
-                                        <label for="others">Others<input type="radio" name="gender" id="others" /></label>
-                                    </label>
-                                    <div>
-                                    <label>Age</label>
-                                    <input  id="age" type="text" name="Age" min="16" max="120" maxlength="2" placeholder="Age">
-                                </div>
-                      </div>
-                      <div class="col-sm">
-                            <fieldset class="contact">
-                                    <legend>Contact Information</legend>
-                                    <div>
-                                            <label for="phone">Enter your Phone: </label>
-                                            <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone"required>
-                                        </div>
-                                             <div>
-                                                    <label for="email">Enter your email: </label>
-                                                    <input type="email" name="email" id="email"  placeholder="email"required>
-                                                </div>
-                                                <button  onclick="store()" type="button" class="btn btn-primary">Primary</button>
-                                            </div>
-                                            </fieldset>                      </div>
-                    </div>
-                  </div>
-                    </fieldset>
-        </form> 
+            <div class="row">
+            <div class="col">
+            <div class="Names">
+              <fieldset class="signfield">
+              <legend class="signlegend"> Join us by filling out this form!</legend> 
+
+            <label for="First Name">First Name:</label>
+            <input type="text" class="form-control" id="fname" placeholder="First Name">
+            <label for="Middle Name">Middle Name: </label>
+            <input type="text" class="form-control" id="mname" placeholder="Middle Name (Optional)">
+            <label for="Last Name">Last Name:</label>
+            <input type="text" class="form-control" id="lname" placeholder="Last Name">
+            
+            <label> Gender:</label><br>
+            <input type="radio"  id="female" name="Gender" value="male"> Male<br>
+            <input type="radio" id="male"  name="Gender" value="female"> Female<br>
+            <input type="radio"  id="others" name="Gender" value="other"> Other<br>
+            
+            <label>Age:</label>
+            <input type="text" id="age" name="Age" maxlength="2">
+            <br>
+            <label> Phone:</label>
+            <input type="text" id="phone" name="Phone" maxlength="10">
+            <br>
+            <label>Email:</label>
+            <input type="email" id="email" name="Email">
+          </fieldset>
+            
+            <fieldset class="signfield">
+              <legend class="signlegend">Address here </legend>
+            <label for="address">Address:</label>
+
+            <input type="text" class="form-control" id="adl1" placeholder="Address line 1">
+            <input type="text" class="form-control" id="adl2" placeholder="Address line 2"> 
+            <input type="text" class="form-control" id="zipcode" placeholder="zipcode">
+            <input type="text" class="form-control" id="city" placeholder="City">
+            <input type="text" class="form-control" id="state" placeholder="State">
+            <input type="text" class="form-control" id="country" placeholder="Country">
+          </fieldset>
+           
+          
+            <button onclick="store()" type="button">Join</button>
+            
+            </form>
+            </div>
+            </div>
+            
 
     </main>
     

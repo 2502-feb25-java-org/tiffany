@@ -25,7 +25,8 @@
                 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
+                      SignIn/Up
+
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="signup1.html">Sign Up</a>
@@ -38,12 +39,12 @@
           </nav>
           </header> 
 <body>
-<h1>Space N Vaders</h1>
-<h1>Use Arrow keys to move left and right</h1>
-<h1>Use space key to shoot</h1>
+<h1 class="font-weight-lighter" >Space N Vaders</h1>
+<h1 class="font-weight-lighter" >Use Arrow keys to move left and right</h1>
+<h1 class="font-weight-lighter" >Use space key to shoot</h1>
 
 <canvas id="canvas" width="600" height="400"></canvas>
-<script src='gamecore.js'></script>
+<script src='game.js'></script>
 
 <script language="JavaScript">
 var can = document.getElementById("canvas");
@@ -62,7 +63,7 @@ loadResources();
  
 function loadResources() { 
     ship_image = new Image(); 
-    ship_image.src = "Hunter1.png"; 
+    ship_image.src = "Pocket_Morty.png"; 
 
     bomb_image = new Image(); 
     bomb_image.src = "bomb.png"; 
@@ -111,7 +112,7 @@ function drawPlayer(c) {
     //c.fillRect(player.x,player.y, player.width, player.height);
     
     c.drawImage(ship_image,  
-	    25,1, 23,23, //src coords 
+	    141,35, 120,120, //src coords 
 	    player.x, player.y, player.width, player.height //dst coords 
 	    ); 
 }
@@ -144,7 +145,7 @@ function drawEnemies(c) {
             c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
         }
         if(enemy.state == "hit") {
-            c.fillStyle = "purple";
+            c.fillStyle = "gray";
             c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
         }
         //this probably won't ever be called.
