@@ -43,7 +43,7 @@
           </header>
        
                   <div class="jumbotron">
-                        <h1 class="display-4">Sign Up to Join Revature!</h1>
+                        <h1 class="display-4">Sign in to log in to Revature!</h1>
                         <p class="lead">Fill out the simple contact form.</p>
                         <hr class="my-4">
                         <p>Look out for a response from one of our recruiters!</p>
@@ -52,51 +52,76 @@
 
          <main>
 
-    <form action="url" method="GET" id="sign-up-form">
-    <fieldset class="center">
-
-            <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                            <legend> Sign up requirements</legend>
-                            <label for="name"> First Name:</label><br>
-                            <input type="text" name="name" placeholder="First name" id="fname" required/><br>
-                            <label> Last Name:</label><br>
-                            <input type="text" name="name" placeholder="Last name" id="lname" required/>
-                      </div>
-                      <div class="col-sm">
-                            <legend>Gender and Age</legend>
-                                    <label for="gender" id="gender">Gender :
-                                        <label for="male" >Male<input type="radio" name="gender" id="male" /></label>
-                                        <label for="female">Female<input type="radio" name="gender" id="female" /> </label>
-                                        <label for="others">Others<input type="radio" name="gender" id="others" /></label>
-                                    </label>
-                                    <div>
-                                    <label>Age</label>
-                                    <input  id="age" type="text" name="Age" min="16" max="120" maxlength="2" placeholder="Age">
-                                </div>
-                      </div>
-                      <div class="col-sm">
-                            <fieldset class="contact">
-                                    <legend>Contact Information</legend>
-                                    <div>
-                                            <label for="phone">Enter your Phone: </label>
-                                            <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone"required>
-                                        </div>
-                                             <div>
-                                                    <label for="email">Enter your email: </label>
-                                                    <input type="email" name="email" id="email"  placeholder="email"required>
-                                                </div>
-                                                <button  onclick="store()" type="button" class="btn btn-primary">Primary</button>
-                                            </div>
-                                            </fieldset>                      </div>
-                    </div>
-                  </div>
-                    </fieldset>
-        </form> 
+          <form>
+              <div class="container">
+                  <div class="row">
+                    <div class="col">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Example select</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div> 
+            <div class="form-group">
+                
+              <label for="exampleFormControlSelect2">Example multiple select</label>
+              <select multiple class="form-control" id="exampleFormControlSelect2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </form>
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Email address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Example select</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect2">Example multiple select</label>
+              <select multiple class="form-control" id="exampleFormControlSelect2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
 
     </main>
-    
     <nav class="navbar bottom navbar-light bg-light">
       <a class="navbar-brand" href="https://www.linkedin.com/company/revature"><img alt="Image Not found"
         src="linkedin.png"
@@ -111,15 +136,8 @@
               src="insta.png"
               width="100" length="100"></a>
     </nav>
-    
     <script src="sign.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-
-
-
-
-
-</html>
