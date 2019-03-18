@@ -38,10 +38,11 @@
             </div>
           </nav>
           </header> 
-<body>
-<h1 class="font-weight-lighter" >Space N Vaders</h1>
-<h1 class="font-weight-lighter" >Use Arrow keys to move left and right</h1>
-<h1 class="font-weight-lighter" >Use space key to shoot</h1>
+<body background="R&M.jpg">
+<h1 style="color:whitesmoke";   align="center" >Rick and Morty Vaders</h1>
+<h2  style="color:whitesmoke";   align="center"  >How to play:</h2>
+<h2   style="color:whitesmoke";   align="center" >Use Arrow keys to move left and right</h2>
+<h2  style="color:whitesmoke";   align="center" >Use space key to shoot</h2>
 
 <canvas id="canvas" width="600" height="400"></canvas>
 <script src='game.js'></script>
@@ -70,6 +71,9 @@ function loadResources() {
      
     bullet_image = new Image(); 
     bullet_image.src = "bullets.png"; 
+
+    alien_image = new Image();
+    alien_image.src = "Alien_Rick.png";
 } 
 
 function mainLoop() {
@@ -116,8 +120,9 @@ function drawPlayer(c) {
 	    player.x, player.y, player.width, player.height //dst coords 
 	    ); 
 }
+
 function drawPlayerBullets(c) { 
-    c.fillStyle = "blue"; 
+    //c.fillStyle = "blue"; 
     for(i in playerBullets) { 
         var bullet = playerBullets[i]; 
         var count = Math.floor(bullet.counter/4); 
@@ -131,18 +136,37 @@ function drawPlayerBullets(c) {
     } 
 }
 
+function firePlayerBullet() { 
+	//create a new bullet 
+	playerBullets.push({ 
+		x: player.x, 
+		x: player.x+14, 
+		y: player.y - 5, 
+		width:10, 
+		height:10, 
+		width:20, 
+		height:20, 
+		counter:0, 
+	}); 
+}
+
 // =========== background ============
 function drawBackground(c) {
 	c.fillStyle = "black";
 	c.fillRect(0,0,can.width,can.height);
 }
 // =========== enemies ===============
+/*
 function drawEnemies(c) {
+
     for(var i in enemies) {
         var enemy = enemies[i];
         if(enemy.state == "alive") {
             c.fillStyle = "green";
-            c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
+             
+	   // 141,35, 120,120, //src coords 
+	   c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
+            
         }
         if(enemy.state == "hit") {
             c.fillStyle = "gray";
@@ -153,8 +177,62 @@ function drawEnemies(c) {
             c.fillStyle = "black";
             c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
         }
+       
     }
+ 
+}*/
+
+function drawEnemies(c) { 
+    for(var i in enemies) { 
+        var enemy = enemies[i]; 
+        if(enemy.state == "alive") { 
+            //c.fillStyle = "green"; 
+            c.drawImage( 
+            alien_image, 
+            131,40,140,140,//src 
+            enemy.x,enemy.y,enemy.width,enemy.height//dst 
+        ); 
+        } 
+        if(enemy.state == "hit") { 
+            c.fillStyle = "purple"; 
+            enemy.shrink--; 
+            drawEnemy(c,enemy,enemy.shrink); 
+        } 
+        //this probably won't ever be called. 
+        if(enemy.state == "dead") { 
+            c.fillStyle = "black"; 
+            c.drawEnemy(c,enemy,15); 
+        } 
+    } 
 }
+
+function drawEnemy(c,enemy,radius) { 
+    if(radius <=0) radius = 1; 
+    var theta = enemy.counter;         
+    c.save(); 
+    c.translate(0,30); 
+    //draw the background circle 
+    circlePath(c, enemy.x, enemy.y, radius*2); 
+    c.fill(); 
+    //draw the wavy dots 
+    for(var i=0; i<10; i++) { 
+        var xoff = Math.sin(toRadians(theta+i*36*2))*radius; 
+        var yoff = Math.sin(toRadians(theta+i*36*1.5))*radius; 
+        circlePath(c, enemy.x + xoff, enemy.y + yoff, 3); 
+        c.fillStyle = "white"; 
+        c.fill(); 
+    } 
+    c.restore(); 
+} 
+function toRadians(d) { 
+    return d * Math.PI * 2.0 / 360.0; 
+} 
+function circlePath(c, x, y, r) { 
+    c.beginPath(); 
+    c.moveTo(x,y); 
+    c.arc(x,y, r, 0, Math.PI*2);     
+} 
+
 function createEnemyBullet(enemy) {
     return {
         x:enemy.x, 
@@ -184,7 +262,7 @@ function drawOverlay(c) {
     if(game.state == "over") {
         c.fillStyle = "white";
         c.font = "Bold 40pt Arial";
-        c.fillText("GAME OVER",140,200);
+        c.fillText("Wubalubadubdub",140,200);
         c.font = "14pt Arial";
         c.fillText("press space to play again", 190,250);
     }
@@ -198,6 +276,8 @@ function drawOverlay(c) {
 }
 doSetup();
 setInterval(mainLoop,1000/30);
+
+
 </script>
 <nav class="navbar bottom navbar-light bg-light">
   <a class="navbar-brand" href="https://www.linkedin.com/company/revature"><img alt="Image Not found"
