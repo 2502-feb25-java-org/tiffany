@@ -1,0 +1,27 @@
+window.onload=function(){
+	loadLandingVeiw();
+}
+
+
+
+
+function loadLandingView(){
+	
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+	if(xhr.readystate==4){
+		if(xhr.status==200){
+			//success
+			//we know our response will be HTML	
+			$(`#veiw`).html(xhr.responseText);
+		}
+		if(xhr.status> 399){
+			
+		}
+	}
+	
+}
+
+xhr.open("Get", "loadview");
+xhr.send();
+}

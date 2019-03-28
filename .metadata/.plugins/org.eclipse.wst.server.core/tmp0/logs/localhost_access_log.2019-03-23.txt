@@ -1,0 +1,5 @@
+127.0.0.1 - - [23/Mar/2019:15:18:25 -0400] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [23/Mar/2019:15:19:46 -0400] "GET /hello-servlets/index.html HTTP/1.1" 200 1068
+0:0:0:0:0:0:0:1 - - [23/Mar/2019:15:19:46 -0400] "GET /hello-servlets/app.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Mar/2019:15:19:46 -0400] "GET /hello-servlets/landing.view HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [23/Mar/2019:15:20:14 -0400] "POST /hello-servlets/login HTTP/1.1" 200 4

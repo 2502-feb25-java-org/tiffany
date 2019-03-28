@@ -1,0 +1,14 @@
+package com.revature.main;
+
+import com.revature.data.UserDAO;
+
+public class APP {
+
+	
+	public static void main (String [] args) {
+		UserDAO dao = new UserDAO();
+		//System.out.println().getUsers());
+		System.out.println();
+		
+	}
+}

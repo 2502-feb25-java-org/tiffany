@@ -1,0 +1,27 @@
+package com.revature.CodingChallenge;
+
+
+/*
+- Coding challenges:
+    - Create a class that will implement your own version of a LinkedList
+    (Java collection where elements are stored as nodes, each node contains a link to the next node, 
+    and whatever data you wish to hold, let's say a string value) without using any Java collection classes
+    - Write a method that will take in an int (whole number base 10) and return its hexadecimal value (whole number base 16)
+*/
+
+
+
+
+public class LinkedList {
+
+	
+	public static linkedList list;
+	public static void main(String[] args) {
+		
+		list = new LinkedList(); 
+		
+	list.add("a");
+	
+	
+	}
+}

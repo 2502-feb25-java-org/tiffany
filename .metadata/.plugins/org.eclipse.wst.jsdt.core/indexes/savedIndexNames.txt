@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+/Users/tiffanywest/Desktop/Revature/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+824024595.index

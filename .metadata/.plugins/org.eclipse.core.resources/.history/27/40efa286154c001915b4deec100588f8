@@ -1,0 +1,4 @@
+<h1>Welcome to my Demo!</h1>
+<input type= "text" id= "username" placeholder= "username" class= "form-control col-6">
+<input type= "password" class= "form-control cool-6" id= "password" placeholder= "password">
+<button class= "btn btn-warning" id="Login">Log in!</button>

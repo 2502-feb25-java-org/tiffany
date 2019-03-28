@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>Servlets</display-name>
+	<!-- Welcome to the land of web apps! In Java Maven projects, when we package 
+		an app as a .war, we need a deployment descriptor AKA the web.xml this will 
+		always be located in the src>main>webapp>WEB-INF folder This will contain 
+		information about how we intend for this app to operate on the web In order 
+		to use servlets, we must map them here (or with annotations which we will 
+		learn later) -->
+
+
+	<!-- SERVLET CONTEXT parameter(s) applied to every servlet within the context 
+		of our application -->
+
+	<context-param>
+		<param-name>environmentVar</param-name>
+		<param-value>dummy data - this is an example of servlet context</param-value>
+	</context-param>
+
+
+<servlet-mapping>
+ 	<servlet-name>MyFirstServlet</servlet-name>
+ 	<url-pattern>/hello</url-pattern>
+ </servlet-mapping>
+
+	<servlet>
+		<servlet-name>MyHttp</servlet-name>
+		<servlet-class>com.revature.Servlets.MyHttpServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MyHttp</servlet-name>
+		<url-pattern>/httpReq</url-pattern>
+	</servlet-mapping>
+
+</web-app>
+</element>
