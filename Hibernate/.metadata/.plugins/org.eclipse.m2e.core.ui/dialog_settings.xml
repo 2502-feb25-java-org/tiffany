@@ -5,8 +5,10 @@
 			<item value="com.revature"/>
 		</list>
 		<list key="name">
+			<item value="ERS "/>
 		</list>
 		<list key="artifactId">
+			<item value="reimbursment"/>
 			<item value="servletdemo"/>
 			<item value="hibernate-101"/>
 		</list>
@@ -27,6 +29,7 @@
 	<section name="org.eclipse.m2e.core.pom.overview">
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -50,10 +53,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.revature.reimbursment.reimbursment"/>
 		</list>
 		<list key="groupId">
+			<item value="com.revature.reimbursment"/>
 		</list>
 		<list key="artifactId">
+			<item value="reimbursment"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
