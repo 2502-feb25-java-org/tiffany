@@ -1,0 +1,65 @@
+body{
+    background-color: antiquewhite;
+}
+header{
+    background-color:wheat;
+    border-style: inset;
+    border-color: beige;
+}
+
+fieldset{
+    border-style: dashed;
+    border-color: black;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+.center {
+
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+  }
+.contact{
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+  }
+  .your-centered-div {
+    max-width: 560px; /* you have to have a size or this method doesn't work */
+    max-height: 315px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 8px outset #ddd;
+   
+}
+
+.rounded float-center{
+    padding: 10px;
+    float: left;
+}
+.clear {
+    clear: both;
+  }
+  .article{
+    background: -webkit-linear-gradient(70deg, #e2713a 40%, #89adc5 40%);
+    background: -o-linear-gradient(70deg, #e2713a 40%, #89adc5 40%);
+    background: -moz-linear-gradient(70deg, #e2713a 40%, #89adc5 40%);
+    background: linear-gradient(70deg, #e2713a 40%, #89adc5 40%);
+  }
+ 
+  legend {
+    padding: 0.2em 0.5em;
+    border:1px solid #89adc5;
+    color:#89adc5;
+    font-size:90%;
+    text-align:center;
+    }
+    .signlabel {
+        float:left;
+        width:25%;
+        margin-right:0.5em;
+        padding-top:0.2em;
+        text-align:right;
+        
+        }

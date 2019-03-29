@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "com.revature.Interface.App"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AnimalMain",
+            "request": "launch",
+            "mainClass": "com.revature.JDBCprac.AnimalMain",
+            "projectName": "JDBCprac"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CarMain",
+            "request": "launch",
+            "mainClass": "com.revature.JDBCprac.CarMain",
+            "projectName": "JDBCprac"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - overloading",
+            "request": "launch",
+            "mainClass": "com.revature.JDBCprac.overloading",
+            "projectName": "JDBCprac"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "com.revature.JDBCprac.App",
+            "projectName": "JDBCprac"
+        }
+    ]
+}

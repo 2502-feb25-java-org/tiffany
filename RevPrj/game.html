@@ -1,0 +1,300 @@
+<html>
+<head>
+<title>Space N Vaders Game</title>
+<link rel="stylesheet" href="signup.css"/> 
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="https://revature.com"><img alt="Image Not found"
+            src="rev logo.png"
+            width="100" length="100"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="homerev.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      SignIn/Up
+
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="signup1.html">Sign Up</a>
+                    <a class="dropdown-item" href="signin.html">Sign In</a>
+                    
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          </header> 
+<body background="R&M.jpg">
+<h1 style="color:whitesmoke";   align="center" >Rick and Morty Vaders</h1>
+<h2  style="color:whitesmoke";   align="center"  >How to play:</h2>
+<h2   style="color:whitesmoke";   align="center" >Use Arrow keys to move left and right</h2>
+<h2  style="color:whitesmoke";   align="center" >Use space key to shoot</h2>
+
+<canvas id="canvas" width="600" height="400"></canvas>
+<script src='game.js'></script>
+
+<script language="JavaScript">
+var can = document.getElementById("canvas");
+var c = can.getContext('2d');
+
+
+//new code 
+player.width = 46;  
+player.height = 46; 
+
+
+//new code 
+var ship_image; 
+ 
+loadResources(); 
+ 
+function loadResources() { 
+    ship_image = new Image(); 
+    ship_image.src = "Pocket_Morty.png"; 
+
+    bomb_image = new Image(); 
+    bomb_image.src = "bomb.png"; 
+     
+    bullet_image = new Image(); 
+    bullet_image.src = "bullets.png"; 
+
+    alien_image = new Image();
+    alien_image.src = "Alien_Rick.png";
+} 
+
+function mainLoop() {
+	var c = can.getContext('2d');
+	updateGame();
+	updateBackground();
+	updateEnemies();
+	updatePlayer();
+	
+	updatePlayerBullets();
+	updateEnemyBullets();
+	checkCollisions();
+	
+	drawBackground(c);
+	drawEnemies(c);
+	drawPlayer(c);
+	drawEnemyBullets(c);
+	drawPlayerBullets(c);
+	drawOverlay(c);
+}
+// =========== player ============
+function firePlayerBullet() {
+	//create a new bullet
+	playerBullets.push({
+		x: player.x,
+		y: player.y - 5,
+		width:10,
+		height:10,
+	});
+}
+function drawPlayer(c) {
+    if(player.state == "dead") return;
+    
+    if(player.state == "hit") {
+        c.fillStyle = "yellow";
+        c.fillRect(player.x,player.y, player.width, player.height);
+    	return;
+	}
+	c.fillStyle = "red";
+    //c.fillRect(player.x,player.y, player.width, player.height);
+    
+    c.drawImage(ship_image,  
+	    141,35, 120,120, //src coords 
+	    player.x, player.y, player.width, player.height //dst coords 
+	    ); 
+}
+
+function drawPlayerBullets(c) { 
+    //c.fillStyle = "blue"; 
+    for(i in playerBullets) { 
+        var bullet = playerBullets[i]; 
+        var count = Math.floor(bullet.counter/4); 
+        var xoff = (count%4)*24; 
+        c.fillRect(bullet.x, bullet.y, bullet.width,bullet.height); 
+        c.drawImage( 
+            bullet_image, 
+            xoff+10,0+9,8,8,//src 
+            bullet.x,bullet.y,bullet.width,bullet.height//dst 
+        ); 
+    } 
+}
+
+function firePlayerBullet() { 
+	//create a new bullet 
+	playerBullets.push({ 
+		x: player.x, 
+		x: player.x+14, 
+		y: player.y - 5, 
+		width:10, 
+		height:10, 
+		width:20, 
+		height:20, 
+		counter:0, 
+	}); 
+}
+
+// =========== background ============
+function drawBackground(c) {
+	c.fillStyle = "black";
+	c.fillRect(0,0,can.width,can.height);
+}
+// =========== enemies ===============
+/*
+function drawEnemies(c) {
+
+    for(var i in enemies) {
+        var enemy = enemies[i];
+        if(enemy.state == "alive") {
+            c.fillStyle = "green";
+             
+	   // 141,35, 120,120, //src coords 
+	   c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
+            
+        }
+        if(enemy.state == "hit") {
+            c.fillStyle = "gray";
+            c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
+        }
+        //this probably won't ever be called.
+        if(enemy.state == "dead") {
+            c.fillStyle = "black";
+            c.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
+        }
+       
+    }
+ 
+}*/
+
+function drawEnemies(c) { 
+    for(var i in enemies) { 
+        var enemy = enemies[i]; 
+        if(enemy.state == "alive") { 
+            //c.fillStyle = "green"; 
+            c.drawImage( 
+            alien_image, 
+            131,40,140,140,//src 
+            enemy.x,enemy.y,enemy.width,enemy.height//dst 
+        ); 
+        } 
+        if(enemy.state == "hit") { 
+            c.fillStyle = "purple"; 
+            enemy.shrink--; 
+            drawEnemy(c,enemy,enemy.shrink); 
+        } 
+        //this probably won't ever be called. 
+        if(enemy.state == "dead") { 
+            c.fillStyle = "black"; 
+            c.drawEnemy(c,enemy,15); 
+        } 
+    } 
+}
+
+function drawEnemy(c,enemy,radius) { 
+    if(radius <=0) radius = 1; 
+    var theta = enemy.counter;         
+    c.save(); 
+    c.translate(0,30); 
+    //draw the background circle 
+    circlePath(c, enemy.x, enemy.y, radius*2); 
+    c.fill(); 
+    //draw the wavy dots 
+    for(var i=0; i<10; i++) { 
+        var xoff = Math.sin(toRadians(theta+i*36*2))*radius; 
+        var yoff = Math.sin(toRadians(theta+i*36*1.5))*radius; 
+        circlePath(c, enemy.x + xoff, enemy.y + yoff, 3); 
+        c.fillStyle = "white"; 
+        c.fill(); 
+    } 
+    c.restore(); 
+} 
+function toRadians(d) { 
+    return d * Math.PI * 2.0 / 360.0; 
+} 
+function circlePath(c, x, y, r) { 
+    c.beginPath(); 
+    c.moveTo(x,y); 
+    c.arc(x,y, r, 0, Math.PI*2);     
+} 
+
+function createEnemyBullet(enemy) {
+    return {
+        x:enemy.x, 
+        y:enemy.y+enemy.height, 
+        width:4, 
+        height:12, 
+        width:30, 
+        height:30, 
+        counter:0,
+    }
+}
+function drawEnemyBullets(c) {
+    for(var i in enemyBullets) { 
+        var bullet = enemyBullets[i]; 
+        c.fillStyle = "yellow"; 
+       // c.fillRect(bullet.x, bullet.y , bullet.width, bullet.height); 
+        var xoff = (bullet.counter%9)*12 + 1; 
+        var yoff = 1; 
+        c.drawImage(bomb_image, 
+            xoff,yoff,11,11,//src 
+            bullet.x,bullet.y,bullet.width,bullet.height//dest 
+            ); 
+    }
+}
+// =========== overlay ===============
+function drawOverlay(c) {
+    if(game.state == "over") {
+        c.fillStyle = "white";
+        c.font = "Bold 40pt Arial";
+        c.fillText("Wubalubadubdub",140,200);
+        c.font = "14pt Arial";
+        c.fillText("press space to play again", 190,250);
+    }
+    if(game.state == "won") {
+        c.fillStyle = "white";
+        c.font = "Bold 40pt Arial";
+        c.fillText("SWARM DEFEATED",50,200);
+        c.font = "14pt Arial";
+        c.fillText("press space to play again", 190,250);
+    }
+}
+doSetup();
+setInterval(mainLoop,1000/30);
+
+
+</script>
+<nav class="navbar bottom navbar-light bg-light">
+  <a class="navbar-brand" href="https://www.linkedin.com/company/revature"><img alt="Image Not found"
+    src="linkedin.png"
+    width="100" length="100"></a>
+    <a class="navbar-brand" href="https://www.facebook.com/revature/"><img alt="Image Not found"
+      src="fb.jpg"
+      width="100" length="100"></a>
+      <a class="navbar-brand" href="https://twitter.com/WeAreRevature"><img alt="Image Not found"
+        src="twitter.png"
+        width="100" length="100"></a>
+        <a class="navbar-brand" href="https://www.instagram.com/teamrevature/"><img alt="Image Not found"
+          src="insta.png"
+          width="100" length="100"></a>
+</nav>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
+</body>
